@@ -6,21 +6,21 @@ public class Main {
         Scanner sc = new Scanner( System.in );
 
         int subjectNum = sc.nextInt();
-        
-        List<Integer> score = new ArrayList<>();
-        
+
+        int max = -1;
+        int value = 0;
+        double sum = 0;
+
         for ( int i = 0; i < subjectNum; i++ ){
-            score.add( sc.nextInt() );
+
+            value = sc.nextInt();
+            if( value > max ) {
+                max = value;
+            }
+
+            sum += value;
         }
-        
-        Collections.sort( score );
-        
-        double temp = 0;
-        for ( int i = 0; i < subjectNum; i++ ) {
-        
-            temp += (double) score.get(i) / score.get(subjectNum-1) * 100;
-        }
-        System.out.println(temp / subjectNum);
+        System.out.println(sum/max * 100.0 / subjectNum );
 
     }
 }
